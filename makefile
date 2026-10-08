@@ -4,6 +4,7 @@ include ./env
 create_folders:
 	mkdir -p objects
 	mkdir -p bin
+	mkdir -p outputs
 
 .PHONY: clean_compiled_files
 clean_compiled_files:
@@ -14,6 +15,7 @@ clean_compiled_files:
 clean:
 	rm -rf objects
 	rm -rf bin
+	rm -rf outputs
 
 .PHONY: compile
 compile: clean_compiled_files
@@ -26,4 +28,4 @@ compile: clean_compiled_files
 all: clean create_folders compile
 
 run:
-	mpirun -n 1 bin/main.exe props/config.props props/model.props
+	mpirun -n 4 bin/main.exe props/config.props props/model.props
